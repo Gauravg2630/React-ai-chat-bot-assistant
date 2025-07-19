@@ -4,9 +4,6 @@ import "./App.css";
 import axios from 'axios';
 
 function App() {
-  axios.post(`${process.env.REACT_APP_API_URL}/api/chat`, {
-  message: 'Hello!'
-  });
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
 
@@ -17,7 +14,7 @@ function App() {
     setMessages(newMessages);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userInput }),

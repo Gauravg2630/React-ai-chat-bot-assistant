@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import Message from "./components/Message";
 import "./App.css";
+import axios from 'axios';
 
 function App() {
+  axios.post(`${process.env.REACT_APP_API_URL}/api/chat`, {
+  message: 'Hello!'
+  });
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
 
